@@ -39,7 +39,18 @@ This project explores several machine learning (ML) and deep learning (DL) techn
   - Categories could include: **Anagram, Definition-based, Homophone, Cryptic, Wordplay, Pop Culture Reference, etc.**
 - **Purpose**: Assists users by setting expectations about how to interpret the given clue.
 
-### 4. Additional Hint Generation (Transformer-Based NLP Model)
+
+### 4. Answer Prediction (Fine-Tuning T5)
+
+- **Approach**: This method aims to predict the correct answer for a given clue, even without access to the solution, by training a sequence-to-sequence model.
+- **Technique**:
+  - Fine-tune **T5 (Text-to-Text Transfer Transformer)** on the crossword dataset where the input is the clue, and the target output is the correct answer.
+  - Utilize **tokenization and data preprocessing** techniques to ensure effective model learning.
+  - Train with **cross-entropy loss** and optimize using **AdamW** to handle the large vocabulary space.
+  - Experiment with **beam search** or **top-k sampling** for generating better answer predictions.
+- **Purpose**: Enables the crossword helper to **suggest possible answers** when the user does not know the correct solution, moving towards a fully independent crossword-solving AI.
+
+### 5. Additional Hint Generation (Transformer-Based NLP Model)
 - **Approach**: This method involves **generating new hints** that provide a fresh perspective on the answer.
 - **Technique**:
   - Fine-tune a **transformer model** (e.g., GPT, T5, or BART) on the crossword dataset to generate alternative hints.
